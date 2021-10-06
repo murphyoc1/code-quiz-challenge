@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
-// quiz location
-<div id="quiz"></div>
-// submit answer button
-<button id="submit"></button>
-// results of the quiz
-<div id="results"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Code Quiz</title>
+</head>
+<body>
+    <header>
+        <button type="button" id="view-high-score" name="view-high-score">View High Score</button>
+        <p>Timer: <span id="timer">75</span></p>
+    </header>
+    <main id="quiz">
+        <h1 id="main-title">Coding Quiz</h1>
+        <p id="main-intro">Welcome to the Coding Quiz! Put your coding knowledge to the test. Press the button to begin your quiz.
+            When the timer reaches zero your quiz is over. Try your best to complete all of these questions. High scores will be
+            showed, so see how well you fare up to against your friends!
+        </p>
+        <div id="main-button">
+            <button type="button" id="begin-button" class="begin-quiz">Start Quiz!</button>
+        </div>
+    </main>
+    <script  src="./assets/script.js"></script>
+</body>
 
 </html>
