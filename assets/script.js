@@ -38,17 +38,6 @@ var questionCounter = 0;
 var score = 0;
 var highScoreList = [];
 
-// function makes question
-var askQuestion = function() {
-    mainEl.innerHTML = "";
-    var questionEl = document.createElement("div");
-    questionEl.innerHTML = "<h1 class='main-title question-title'>" + questions[questionCounter].question + "</h1>";
-    questionEl.appendChild(generateAnswers());
-
-    mainEl.appendChild(questionEl);
-    document.querySelector(".answers-container").addEventListener("click", displayResult);
-};
-
 // start timer
 var startTimer = function() {
     var timer = setInterval(function() {
@@ -62,6 +51,17 @@ var startTimer = function() {
             clearInterval(timer);
         }
     },1000);
+};
+
+// function makes question
+var askQuestion = function() {
+    mainEl.innerHTML = "";
+    var questionEl = document.createElement("div");
+    questionEl.innerHTML = "<h1 class='main-title question-title'>" + questions[questionCounter].question + "</h1>";
+    questionEl.appendChild(generateAnswers());
+
+    mainEl.appendChild(questionEl);
+    document.querySelector(".answers-container").addEventListener("click", displayResult);
 };
 
 // create answers 
@@ -165,13 +165,12 @@ var showScores = function() {
 
     var scoreList = document.createElement("ul");
 
-    // sorts scores from highest to lowest
+    // sorts scores in order
     var highScoreList = orderScores();
     for (i = 0; i < highScoreList.length; i++) {
         var scoreEl = document.createElement("li");
         scoreEl.innerHTML = (i + 1) + ". " + highScoreList[i].initials + " - " + highScoreList[i].score;
 
-        // add alternating styling
         if (i%2 === 0) {
             scoreEl.className = "primary-score";
         }
@@ -191,7 +190,6 @@ var showScores = function() {
 
     mainEl.appendChild(scoreListPage);
 
-    // adds functionality to buttons on high scores page
     document.querySelector("button[name='go-back']").addEventListener("click", function() {location.reload();});
     document.querySelector("button[name='clear']").addEventListener("click", clearScores);
 };

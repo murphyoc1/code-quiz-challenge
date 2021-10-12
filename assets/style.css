@@ -1,3 +1,5 @@
+
+
 body {
     margin: 0 auto;
     width: 60%;
@@ -16,7 +18,7 @@ h1 {
 main p {
     text-align: center;
     width: 60%;
-    margin: 0 auto;
+    margin: 20px auto;
     font-size: 20px;
 }
 
@@ -25,41 +27,41 @@ main div {
     margin-top: 10px;
 }
 
-main h2 {
-    border-bottom: 1px solid #7d7d7d;
-    color: #7d7d7d;
-    display: inline-block;
+main h1 {
+    border-bottom: 1px solid black;
     width: 50%;
-    text-align: left;
+    text-align: center;
     margin: 0 auto;
 }
 
 .begin-quiz {
     padding: 10px 20px;
-    color: var(--white);
-    background-color: var(--primary-color);
-    border: 2px solid var(--black);
+    color: black;
+    background-color: wheat;
+    border: 2px solid midnightblue;
     border-radius: 15px;
     box-shadow: 0 5px #999;
 }
 
 .begin-quiz:hover {
-    background-color: var(--faded-primary);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .begin-quiz:active {
-    box-shadow: 0 3px #666;
-    transform: translateY(2px);
+    transform: translateY(5px);
 }
 
 .answer-btn {
-    display: block;
-    width: 40%;
+    width: 55%;
     margin: 0 auto 10px auto;
     text-align: left;
-    color: var(--white);
-    background-color: var(--primary-color);
-    border: 2px solid var(--black);
+    color: black;
+    background-color: wheat;
+    border: 2px solid black;
+}
+
+.answer-btn:hover {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .score-page {
@@ -77,7 +79,7 @@ main h2 {
 }
 
 .score-page p {
-    width: 60%;
+    width: 75%;
 }
 
 .score-page div {
@@ -95,7 +97,7 @@ main h2 {
 
 .score-form p {
     flex: 1;
-    font-size: 18px;
+    font-size: 24px;
     flex-basis: 20%;
 }
 
@@ -105,14 +107,14 @@ main h2 {
 }
 
 .score-form input, .score-form button {
-    padding: 5px 7px;
+    padding: 10px 10px;
     margin-right: 5px;
 }
 
 .score-form button {
-    color: var(--white);
-    background-color: var(--primary-color);
-    border: 2px solid var(--black);
+    color: black;
+    background-color: wheat;
+    border: 2px solid black;
 }
 
 .score-list-page {
@@ -132,10 +134,6 @@ main h2 {
     text-align: left;
 }
 
-.primary-score {
-    background-color: var(--faded-primary);
-}
-
 .score-buttons {
     display: flex;
     justify-content: space-around;
@@ -147,9 +145,9 @@ main h2 {
     padding: 5px 7px;
     margin-right: 5px;
     margin-bottom: 10px;
-    color: var(--white);
-    background-color: var(--primary-color);
-    border: 2px solid var(--black);
+    color: black;
+    background-color: wheat;
+    border: 2px solid black;
 }
 
 #view-high-score {
@@ -161,7 +159,7 @@ main h2 {
 }
 
 #view-high-score:hover {
-    text-shadow: 0.5px 0 var(--primary-color);
+    text-shadow: 0.5px 0 wheat;
 }
 
 @media screen and (max-width: 970px) {
