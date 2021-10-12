@@ -20,12 +20,12 @@ let questions = [
         question: "How do you make an arry in JavaScript?",
         answers: ["{item. item. item}", "[item, item, item]", "{item, item, item}", "[item. item. item]"],
         result : ["wrong", "right", "wrong", "wrong"]
-    }
+    },
     {
         question: "What is the difference between Java and JavaScript?",
         answers: ["Both are programing languages", "JavaScript needs to be compiled", "JavaScript is run on a browser only", "Java is run in only the browser"],
         result : ["wrong", "wrong", "right", "wrong"]
-    }
+    },
     {
         question: "What is the result of 2 + 5 + '3'?",
         answers: ["10", "7 + '3'", "73", "253"],
@@ -42,13 +42,26 @@ var highScoreList = [];
 var askQuestion = function() {
     mainEl.innerHTML = "";
     var questionEl = document.createElement("div");
-
     questionEl.innerHTML = "<h1 class='main-title question-title'>" + questions[questionCounter].question + "</h1>";
-
     questionEl.appendChild(generateAnswers());
 
     mainEl.appendChild(questionEl);
     document.querySelector(".answers-container").addEventListener("click", displayResult);
+};
+
+// start timer
+var startTimer = function() {
+    var timer = setInterval(function() {
+        time--;
+        document.querySelector("#timer").textContent = time;
+        if (time === 0) {
+            clearInterval(timer);
+            quizOver();
+        }
+        if (questionCounter === questions.length){
+            clearInterval(timer);
+        }
+    },1000);
 };
 
 // create answers 
@@ -139,7 +152,7 @@ var loadScores = function() {
     }
 };
 
-// shows the list of high scores stored in local storage
+// creates list from scores in local storage
 var showScores = function() {
     headerEl.innerHTML = "";
     mainEl.innerHTML = "";
@@ -198,10 +211,9 @@ var clearScores = function() {
     showScores();
 };
 
-// on page reload, scores are loaded from local storage
+
 loadScores();
 
-// add button functionality for home page
 startButtonEl.addEventListener("click", askQuestion);
 startButtonEl.addEventListener("click", startTimer);
 viewHighScoreEl.addEventListener("click", showScores);
