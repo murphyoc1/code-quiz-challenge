@@ -43,14 +43,6 @@ main h1 {
     box-shadow: 0 5px #999;
 }
 
-/* .begin-quiz:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.begin-quiz:active {
-    transform: translateY(5px);
-} */
-
 .answer-btn {
     width: 55%;
     margin: 0 auto 10px auto;
@@ -59,14 +51,6 @@ main h1 {
     background-color: wheat;
     border: 2px solid black;
 }
-
-/* .answer-btn:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.answer-btn:active {
-    transform: translateY(5px);
-} */
 
 .score-page {
     margin: 0 auto;
