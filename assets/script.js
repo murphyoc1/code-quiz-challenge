@@ -138,3 +138,70 @@ var loadScores = function() {
         highScoreList.push(storedScores[i]);
     }
 };
+
+// shows the list of high scores stored in local storage
+var showScores = function() {
+    headerEl.innerHTML = "";
+    mainEl.innerHTML = "";
+
+    var scoreListPage = document.createElement("div");
+    scoreListPage.className = "score-list-page";
+
+    var scoreListPageHeading = document.createElement("h1");
+    scoreListPageHeading.innerHTML = ("High scores");
+
+    var scoreList = document.createElement("ul");
+
+    // sorts scores from highest to lowest
+    var highScoreList = orderScores();
+    for (i = 0; i < highScoreList.length; i++) {
+        var scoreEl = document.createElement("li");
+        scoreEl.innerHTML = (i + 1) + ". " + highScoreList[i].initials + " - " + highScoreList[i].score;
+
+        // add alternating styling
+        if (i%2 === 0) {
+            scoreEl.className = "primary-score";
+        }
+        else {
+            scoreEl.className = "secondary-score";
+        }
+        scoreList.appendChild(scoreEl);
+    }
+
+    var scoreButtons = document.createElement("div");
+    scoreButtons.innerHTML = "<button type='button' name='go-back'>Go Back</button><button type='button' name='clear'>Clear High Scores</button>";
+    scoreButtons.className = "score-buttons";
+
+    scoreListPage.appendChild(scoreListPageHeading);
+    scoreListPage.appendChild(scoreList);
+    scoreListPage.appendChild(scoreButtons);
+
+    mainEl.appendChild(scoreListPage);
+
+    // adds functionality to buttons on high scores page
+    document.querySelector("button[name='go-back']").addEventListener("click", function() {location.reload();});
+    document.querySelector("button[name='clear']").addEventListener("click", clearScores);
+};
+
+// function to sort scores
+var orderScores = function() {
+    highScoreList.sort((a, b)=> {
+        return b.score - a.score;
+    })
+    
+    return highScoreList;
+};
+
+var clearScores = function() {
+    localStorage.clear();
+    highScoreList = []; 
+    showScores();
+};
+
+// on page reload, scores are loaded from local storage
+loadScores();
+
+// add button functionality for home page
+startButtonEl.addEventListener("click", askQuestion);
+startButtonEl.addEventListener("click", startTimer);
+viewHighScoreEl.addEventListener("click", showScores);
